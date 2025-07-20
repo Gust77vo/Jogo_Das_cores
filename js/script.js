@@ -7,49 +7,58 @@ const div6 = document.getElementById('div6');
 const div7 = document.getElementById('div7');
 const div8 = document.getElementById('div8');
 const div9 = document.getElementById('div9');
+const corEscolha = document.getElementById('escolha');
 
-function ramdom(){
-    let colors = ['red','blue','black','yellow','green','darkcyan']
-    
-    
-    return colors[ram];
+function ramdom(listaColors){
+    for(let i = listaColors.length -1;i>0;i--){
+        const j = Math.floor(Math.random() * (i+1));
+        [listaColors[i],listaColors[j]] = [listaColors[j],listaColors[i]];
+    }
+    return listaColors;
 }
+
 function alternarCor() {
-    div1.style.backgroundColor = ramdom(); 
-    div2.style.backgroundColor = ramdom();
-    div3.style.backgroundColor = ramdom();
-    div4.style.backgroundColor = ramdom();
-    div5.style.backgroundColor = ramdom();
-    div6.style.backgroundColor = ramdom();
-    div7.style.backgroundColor = ramdom();
-    div8.style.backgroundColor = ramdom();
-    div9.style.backgroundColor = ramdom();
-}
+    let colors = ['red','blue','black','yellow','green','darkcyan','red','blue','black','yellow','green','darkcyan'];
+    let cor = ramdom(colors)
+    div1.style.backgroundColor = cor[0]; 
+    div2.style.backgroundColor = cor[1];
+    div3.style.backgroundColor = cor[2];
+    div4.style.backgroundColor = cor[3];
+    div5.style.backgroundColor = cor[4];
+    div6.style.backgroundColor = cor[5];
+    div7.style.backgroundColor = cor[6];
+    div8.style.backgroundColor = cor[7];
+    div9.style.backgroundColor = cor[8];
 
+}
+function escolha(){
+    alternarCor();
+
+}
 div1.onclick = function(){
-    return alternarCor();
+    escolha();
 }
 div2.onclick = function(){
-    return alternarCor();
+    escolha();
 }
 div3.onclick = function(){
-    return alternarCor();
+    escolha();
 }
 div4.onclick = function(){
-    return alternarCor();
+    escolha();
 }
 div5.onclick = function(){
-    return alternarCor();
+    escolha();
 }
 div6.onclick = function(){
-    return alternarCor();
+    escolha();
 }
 div7.onclick = function(){
-    return alternarCor();
+    escolha();
 }
 div8.onclick = function(){
-    return alternarCor();
+    escolha();
 }
 div9.onclick = function(){
-    return alternarCor();
+    escolha();
 }
