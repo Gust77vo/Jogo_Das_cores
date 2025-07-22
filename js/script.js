@@ -8,7 +8,7 @@ const div7 = document.getElementById('div7');
 const div8 = document.getElementById('div8');
 const div9 = document.getElementById('div9');
 
-const pontuacao = document.getElementById('pontuacao');
+let pontos = 0;
 const corEscolha = document.getElementById('escolha');
 
 function ram(listaColors){
@@ -18,7 +18,6 @@ function ram(listaColors){
     }
     return listaColors;
 }
-
 function alternarCor() {
     let colors = ['red','blue','black','yellow','green','darkcyan','red','black','blue'];
     let cor = ram(colors);
@@ -33,20 +32,22 @@ function alternarCor() {
     div8.style.backgroundColor = cor[7];
     div9.style.backgroundColor = cor[8];
 }
-function escolha(){
-    colors = ['red','blue','black','yellow','green','darkcyan'];
-    let pontuacao;
+function escolha() {
+    const colors = ['red', 'blue', 'black', 'yellow', 'green', 'darkcyan'];
     
     for (let i = 1; i <= 9; i++) {
         const divElement = document.getElementById('div' + i);
+        const ramdomize = colors[Math.floor(Math.random() * 5)];
         if (divElement) {
             divElement.onclick = function() {
-                corEscolha.style.backgroundColor = colors[Math.round(Math.random()*6)];
-                if(corEscolha == divElement){
-                    pontuacao+=100;
+                corEscolha.style.backgroundColor = ramdomize;
+                const corAtual = divElement.style.backgroundColor;
+                if (corAtual.toString == ramdomize.toString) {
+                    pontos += 100;
                 }
+                document.getElementById('pontuacao').innerHTML = pontos;
+                document.getElementById('texte').innerHTML = ramdomize;
                 alternarCor();
-                
             };
         }
     }

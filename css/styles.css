@@ -27,6 +27,11 @@ body{
 }
 .menu h1, h2{
     margin: 0%;
+    display: flex;
+}
+h2 p{
+    display: flex;
+    margin: 0;
 }
 .gameDisplay{
     display: flex;
