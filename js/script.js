@@ -7,9 +7,9 @@ const div6 = document.getElementById('div6');
 const div7 = document.getElementById('div7');
 const div8 = document.getElementById('div8');
 const div9 = document.getElementById('div9');
+
 const pontuacao = document.getElementById('pontuacao');
 const corEscolha = document.getElementById('escolha');
-
 
 function ram(listaColors){
     for(let i = listaColors.length -1;i>0;i--){
@@ -20,9 +20,8 @@ function ram(listaColors){
 }
 
 function alternarCor() {
-    let colors = ['red','blue','black','yellow','green','darkcyan','red','blue','black','yellow','green','darkcyan'];
+    let colors = ['red','blue','black','yellow','green','darkcyan','red','black','blue'];
     let cor = ram(colors);
-    let r = Math.floor(Math.random() * 8);
     
     div1.style.backgroundColor = cor[0]; 
     div2.style.backgroundColor = cor[1];
@@ -33,36 +32,23 @@ function alternarCor() {
     div7.style.backgroundColor = cor[6];
     div8.style.backgroundColor = cor[7];
     div9.style.backgroundColor = cor[8];
-    corEscolha.style.backgroundColor = cor[8];
 }
 function escolha(){
-    alternarCor();
+    colors = ['red','blue','black','yellow','green','darkcyan'];
+    let pontuacao;
     
+    for (let i = 1; i <= 9; i++) {
+        const divElement = document.getElementById('div' + i);
+        if (divElement) {
+            divElement.onclick = function() {
+                corEscolha.style.backgroundColor = colors[Math.round(Math.random()*6)];
+                if(corEscolha == divElement){
+                    pontuacao+=100;
+                }
+                alternarCor();
+                
+            };
+        }
+    }
 }
-div1.onclick = function(){
-    escolha();
-}
-div2.onclick = function(){
-    escolha();
-}
-div3.onclick = function(){
-    escolha();
-}
-div4.onclick = function(){
-    escolha();
-}
-div5.onclick = function(){
-    escolha();
-}
-div6.onclick = function(){
-    escolha();
-}
-div7.onclick = function(){
-    escolha();
-}
-div8.onclick = function(){
-    escolha();
-}
-div9.onclick = function(){
-    escolha();
-}
+escolha();
