@@ -9,6 +9,7 @@ const div8 = document.getElementById('div8');
 const div9 = document.getElementById('div9');
 
 let pontos = 0;
+let ramdomize = ' ';
 const corEscolha = document.getElementById('escolha');
 
 function ram(listaColors){
@@ -30,26 +31,26 @@ function alternarCor() {
     div6.style.backgroundColor = cor[5];
     div7.style.backgroundColor = cor[6];
     div8.style.backgroundColor = cor[7];
-    div9.style.backgroundColor = cor[8];
+    div9.style.backgroundColor = cor[8]; 
+
+    const colors2 = ['red', 'blue', 'black', 'yellow', 'green', 'darkcyan'];
+    ramdomize = colors2[Math.floor(Math.random() * colors2.length)];
+    corEscolha.style.backgroundColor = ramdomize;
 }
 function escolha() {
-    const colors = ['red', 'blue', 'black', 'yellow', 'green', 'darkcyan'];
-    
     for (let i = 1; i <= 9; i++) {
         const divElement = document.getElementById('div' + i);
-        const ramdomize = colors[Math.floor(Math.random() * 5)];
         if (divElement) {
             divElement.onclick = function() {
-                corEscolha.style.backgroundColor = ramdomize;
                 const corAtual = divElement.style.backgroundColor;
-                if (corAtual.toString == ramdomize.toString) {
+                if (corAtual.toLowerCase() == ramdomize.toLowerCase()) {
                     pontos += 100;
                 }
                 document.getElementById('pontuacao').innerHTML = pontos;
-                document.getElementById('texte').innerHTML = ramdomize;
                 alternarCor();
             };
         }
     }
 }
+alternarCor();
 escolha();
