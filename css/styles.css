@@ -14,24 +14,16 @@ body{
     align-items: center;
     flex-direction: column;
     background-color: aqua;
-    height: 100px;
+    height: 105px;
     width: 500px;
     margin: 10px;
     padding: 0;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
-.menu div{
-    display: flex;
-    margin: 0%;
-}
-.menu h1, h2{
-    margin: 0%;
-    display: flex;
-}
-h2 p{
-    display: flex;
-    margin: 0;
+h2, p, h1{
+    display: inline-flex;
+    margin: 0px;
 }
 .gameDisplay{
     display: flex;
@@ -54,7 +46,12 @@ h2 p{
     border-radius: 10px;
 }
 .escolha{
+    display: inline-block;
     background-color: bisque;
     width: 50px;
     height: 30px;
+}
+.controles{
+    border-radius: 10px;
+    margin: 5px;
 }
